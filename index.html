@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do list</title>
+  <link rel="stylesheet" href="./styles/nav.css">
+  <link rel="stylesheet" href="./styles/current.css">
+  <link rel="stylesheet" href="./styles/task.css">
+  <link rel="stylesheet" href="./styles/add.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+</head>           
+<body>
+
+
+  <nav>
+    <button class="burger">
+      <span></span>            
+      <span></span>            
+      <span></span>    
+    </button>
+    <div class="bur  ger__menu dropdown-menu">
+      <a href="">Add Task</a>
+      <a href="">Add List</a>
+      <a href="">Add Routin</a>
+    </div>        
+    <div class="category">
+      <button class="category_btm">
+        category 
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.47332 0.473337C9.41135 0.410852 9.33761 0.361255 9.25637 0.327409C9.17513 0.293564 9.088 0.276138 8.99999 0.276138C8.91198 0.276138 8.82484 0.293564 8.7436 0.327409C8.66237 0.361255 8.58863 0.410852 8.52666 0.473337L5.47332 3.52667C5.41135 3.58916 5.33761 3.63875 5.25637 3.6726C5.17513 3.70644 5.088 3.72387 4.99999 3.72387C4.91198 3.72387 4.82484 3.70644 4.7436 3.6726C4.66237 3.63875 4.58863 3.58916 4.52666 3.52667L1.47332 0.473337C1.41135 0.410852 1.33761 0.361255 1.25637 0.327409C1.17513 0.293564 1.088 0.276138 0.999989 0.276138C0.911981 0.276138 0.824844 0.293564 0.743605 0.327409C0.662365 0.361255 0.588631 0.410852 0.526656 0.473337C0.402489 0.598245 0.332794 0.767213 0.332794 0.943337C0.332794 1.11946 0.402489 1.28843 0.526656 1.41334L3.58666 4.47334C3.96166 4.84787 4.46999 5.05824 4.99999 5.05824C5.52999 5.05824 6.03832 4.84787 6.41332 4.47334L9.47332 1.41334C9.59749 1.28843 9.66718 1.11946 9.66718 0.943337C9.66718 0.767213 9.59749 0.598245 9.47332 0.473337V0.473337Z" fill="#9C89B8"/>
+        </svg>
+      </button>
+      <div class="category__menu">
+        <a href="">Work</a>
+        <a href="">Personal</a>
+        <a href="">Chores</a>
+        <a href="">Errands</a>
+        <a href="">Miscellaneous</a>
+      </div>
+    </div>
+    <button class="nav_add-btn">
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+
+  <section id="current">
+    <h1>Current Task</h1>
+    <main>
+      <div class="top"><p>have dinner</p><p>20:00</p></div>
+      
+      <div class="clock-dial">
+        <div class="point"></div>
+        <div class="hour hour-12">12</div>
+        <div class="hour hour-3">3</div>
+        <div class="hour hour-6">6</div>
+        <div class="hour hour-9">9</div>
+
+        <div class="second-hand-wrapper" id="second-hand">
+          <div class="second-hand">
+            <div class="hand"></div>
+          </div>
+        </div>
+
+        <div class="minut-hand-wrapper" id="minut-hand">
+          <div class="minut-hand">
+            <div class="hand"></div>
+            <div class="arrow">V</div>
+          </div>
+        </div>
+
+        <div class="hour-hand-wrapper" id="hour-hand">
+          <div class="hour-hand">
+            <div class="hand"></div>
+            <div class="arrow">V</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="watch">
+        <p id="watch__hour" >00</p>
+        <p>:</p>
+        <p id="watch__minut">00</p>
+        <p>:</p>
+        <p id="watch__second">00</p>
+      </div>
+
+    </main>
+  </section>
+
+  <section id="tasks">
+    <div class="title">
+      <h1>Task</h1>
+      <p>today</p>
+    </div>
+
+    <ul class="AllTask">
+      <!-- <li class="alltask__item">
+        <div class="check-box" >
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.8793 0.953998L5.66666 10.166C5.60472 10.2282 5.53111 10.2775 5.45005 10.3112C5.369 10.3449 5.28209 10.3622 5.19432 10.3622C5.10655 10.3622 5.01965 10.3449 4.93859 10.3112C4.85754 10.2775 4.78393 10.2282 4.72199 10.166L1.15932 6.6C1.09738 6.53781 1.02377 6.48847 0.942719 6.4548C0.861664 6.42114 0.774759 6.4038 0.686989 6.4038C0.59922 6.4038 0.512315 6.42114 0.43126 6.4548C0.350205 6.48847 0.276596 6.53781 0.214656 6.6C0.152471 6.66194 0.10313 6.73555 0.069462 6.8166C0.0357942 6.89766 0.0184631 6.98456 0.0184631 7.07233C0.0184631 7.1601 0.0357942 7.24701 0.069462 7.32806C0.10313 7.40912 0.152471 7.48273 0.214656 7.54467L3.77866 11.108C4.15462 11.4833 4.66412 11.694 5.19532 11.694C5.72652 11.694 6.23602 11.4833 6.61199 11.108L15.824 1.898C15.8861 1.83607 15.9353 1.7625 15.9689 1.68151C16.0025 1.60052 16.0198 1.51369 16.0198 1.426C16.0198 1.33831 16.0025 1.25148 15.9689 1.17049C15.9353 1.08949 15.8861 1.01593 15.824 0.953998C15.7621 0.891813 15.6884 0.842472 15.6074 0.808804C15.5263 0.775136 15.4394 0.757805 15.3517 0.757805C15.2639 0.757805 15.177 0.775136 15.0959 0.808804C15.0149 0.842472 14.9413 0.891813 14.8793 0.953998Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="task" ><p>have dinner</p><p>20:00</p></div>
+      </li> -->
+    </ul>
+  </section>
+
+
+  <section id="add">
+    <form action="" id="addForm">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name">
+
+      <label for="description">Description</label>
+      <textarea name="description" id="description"></textarea>
+      <label for="date">Date</label>
+      <input type="date" name="date" id="date">
+
+      <label for="add_category">Category</label>
+      <select name="category" id="add_category">
+        <option value="work">work</option>
+        <option value="personal">personal</option>
+        <option value="chores">chores</option>
+        <option value="errands">errands</option>
+        <option value="miscellaneous">miscellaneous</option>
+      </select>
+
+      <label for="importance">Level of Importance</label>
+      <select name="importance" id="importance">
+        <option value="important">Important</option>
+        <option value="veryImportant">Very Important</option>
+        <option value="lessImportant">Les Important</option>
+      </select> 
+
+      <label for="color">Color</label>
+      <ul class="colors_container">
+        <li>
+          <input type="radio" checked class="add_color "  name="color" value="CEEDC7">
+          <span></span>
+        </li>
+        <li>
+          <input type="radio" class="add_color" name="color" value="FF9494">
+          <span></span>
+        </li>
+        <li>
+          <input type="radio" class="add_color" name="color" value="FFD4B2">
+          <span></span>
+        </li>
+        <li>
+          <input type="radio" class="add_color" name="color" value="FFF6BD">
+          <span></span>
+        </li>
+        <li>
+          <input type="radio" class="add_color" name="color" value="D7E3FC">
+          <span></span>
+        </li>
+        <li>
+          <input type="radio" class="add_color" name="color" value="FFC8DD">
+          <span></span>
+        </li>
+      </ul>
+    
+      <label for="alarm">Set Alarm</label>
+      <input name="alarm" type="time" id="alarm" >
+
+      <label for="timeDuting">Time During</label>
+      <input type="time" name="timeDuting" id="timeDuting">
+      
+      <input type="submit" value="Add">
+      
+    </form>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+</html>

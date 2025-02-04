@@ -1,0 +1,70 @@
+#tasks {
+  padding: 0 30px;
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  ul {
+    margin-top: 8px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    li {
+      display: flex;
+      border-radius: 8px;
+      align-items: center;
+      gap: 16px;
+      
+    }
+  }
+  .check-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    transition: var(--tran) background cubic-bezier(1, 0, 0, 1);
+    position: relative;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--current);
+    span {
+      position: absolute;
+
+    }
+  }
+  .check-box.active {
+    background-color: var(--current);
+  }
+  .task {
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    width: calc(100% - 50px);
+    padding: 0 8px;
+    border-radius: 8px;
+    background-color: var(--current);
+    transition: var(--tran);
+  }
+  .task::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 0;
+    border: none;
+    border-top: 3px dashed red;
+    left: 0;
+    transition: var(--tran);
+  }
+  .task.active::after {
+    width: 100%;
+    opacity: 1; 
+  }
+
+
+}
