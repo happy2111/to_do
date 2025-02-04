@@ -1,5 +1,6 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 #add {
@@ -18,20 +19,22 @@ body {
     flex-direction: column;
     gap: 4px;
     position: relative;
-    margin: 0 30px;
-    padding: 60px 0;
+    /* margin: 0 30px; */
+    padding: 60px 30px;
     height: 100vh;
     overflow-y: scroll;
   }
   input ,select, textarea{
     cursor: pointer;
-    min-width: 100%;
+    width: 100%;
     min-height: 30px; 
     border: 1px solid var(--purple);
     border-radius: 8px;
     transition: var(--tran);
     outline-color: var(--purple);
     padding: 0 8px;
+    background-color: white;
+
   }
   textarea {
     padding: 4px 8px;

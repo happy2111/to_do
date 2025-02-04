@@ -48,12 +48,12 @@ nav {
 
 }
 .dropdown-menu {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   transition: var(--tran);
   opacity: 1;
   transform: translateY(-200%);
   position: absolute;
-  top: 100%;
+  top: 50px;
   margin-top: 10px;
   display: flex;
   gap: 8px;
