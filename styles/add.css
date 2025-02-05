@@ -133,7 +133,8 @@ body {
   }
 }
 #add.active {
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   opacity: 1;
 }

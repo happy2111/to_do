@@ -1,13 +1,4 @@
-* {
-  user-select: none;
-  -webkit-touch-callout:none;
-  -webkit-user-select:none;
-  -khtml-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
-}
+
 #current {
   margin: 16px 24px;
 
@@ -36,7 +27,7 @@
     height: 100%;
     border-radius: 8px;
     margin: 0 auto;
-    border: 3px solid var(--current);
+    border: 3px solid var(--black);
     padding: 8px 11px;
     margin-top: 8px;
     backface-visibility: hidden;
@@ -81,7 +72,7 @@
     padding: 0.2em;
     width: 127px;
     height: 127px;
-    border: 2px solid var(--current);
+    border: 2px solid var(--black);
     border-radius: 50%;
     margin: 15px auto;
     position: relative;
@@ -89,7 +80,7 @@
   .point {
     width: 10px;
     height: 10px;
-    background-color: var(--current);
+    background-color: var(--black);
     border-radius: 50%;
     position: absolute;
     left: 50%;

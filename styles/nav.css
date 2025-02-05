@@ -10,8 +10,19 @@
   padding: 0;
   color: var(--black);
   font-family: "Signika Negative", serif;
+  user-select: none;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
-
+.container {
+  max-width: 767px;
+  margin: 0 auto;
+}
 nav {
   background-color: white;
   z-index: 10;
