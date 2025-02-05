@@ -1,13 +1,72 @@
+* {
+  user-select: none;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
 #current {
   margin: 16px 24px;
-  main {
+
+  .current__maincontent {
+    position: relative;
     width: 250px;
+    height: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .current__card {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+  }
+  .current__card.active{
+    transform: rotateY(180deg);
+  }
+  main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
     margin: 0 auto;
     border: 3px solid var(--current);
     padding: 8px 11px;
     margin-top: 8px;
+    backface-visibility: hidden;
+    p , div{ 
+      
+    }
+    p::selection {
+      user-select: none;
+      color: transparent;
+    }
   }
+  .current__card__back {
+    transform: rotateY(180deg);
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p { 
+      user-select: none;
+      -webkit-touch-callout:none;
+      -webkit-user-select:none;
+      -khtml-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
+      -webkit-tap-highlight-color:rgba(0,0,0,0);
+    }
+  }
+
   .top {
     display: flex;
     justify-content: space-between;
@@ -17,7 +76,8 @@
   
   
   .clock-dial {
-    cursor: wait;
+    bottom: -30px;
+    scale: 150%;
     padding: 0.2em;
     width: 127px;
     height: 127px;

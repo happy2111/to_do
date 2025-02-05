@@ -50,46 +50,52 @@
 
   <section id="current">
     <h1>Current Task</h1>
-    <main>
-      <div class="top"><p>have dinner</p><p>20:00</p></div>
-      
-      <div class="clock-dial">
-        <div class="point"></div>
-        <div class="hour hour-12">12</div>
-        <div class="hour hour-3">3</div>
-        <div class="hour hour-6">6</div>
-        <div class="hour hour-9">9</div>
-
-        <div class="second-hand-wrapper" id="second-hand">
-          <div class="second-hand">
-            <div class="hand"></div>
+    <div class="current__maincontent">
+      <div class="current__card" onmousedown=activeCardDesk() onmouseup=inactiveCardDesk() ontouchstart=activeCardMob() ontouchend=inactiveCardMob()>
+        <main class="current__card__front">
+          <div class="top"><p>have dinner</p><p>20:00</p></div>
+          
+          <div class="clock-dial">
+            <div class="point"></div>
+            <div class="hour hour-12">12</div>
+            <div class="hour hour-3">3</div>
+            <div class="hour hour-6">6</div>
+            <div class="hour hour-9">9</div>
+    
+            <div class="second-hand-wrapper" id="second-hand">
+              <div class="second-hand">
+                <div class="hand"></div>
+              </div>
+            </div>
+    
+            <div class="minut-hand-wrapper" id="minut-hand">
+              <div class="minut-hand">
+                <div class="hand"></div>
+                <div class="arrow">V</div>
+              </div>
+            </div>
+    
+            <div class="hour-hand-wrapper" id="hour-hand">
+              <div class="hour-hand">
+                <div class="hand"></div>
+                <div class="arrow">V</div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="minut-hand-wrapper" id="minut-hand">
-          <div class="minut-hand">
-            <div class="hand"></div>
-            <div class="arrow">V</div>
+          
+          
+        </main>
+        <main class="current__card__back">
+          <div class="watch">
+            <p id="watch__hour" >00</p>
+            <p>:</p>
+            <p id="watch__minut">00</p>
+            <p>:</p>
+            <p id="watch__second">00</p>
           </div>
-        </div>
-
-        <div class="hour-hand-wrapper" id="hour-hand">
-          <div class="hour-hand">
-            <div class="hand"></div>
-            <div class="arrow">V</div>
-          </div>
-        </div>
+        </main>
       </div>
-      
-      <div class="watch">
-        <p id="watch__hour" >00</p>
-        <p>:</p>
-        <p id="watch__minut">00</p>
-        <p>:</p>
-        <p id="watch__second">00</p>
-      </div>
-
-    </main>
+    </div>
   </section>
 
   <section id="tasks">

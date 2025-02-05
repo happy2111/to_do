@@ -366,3 +366,23 @@ deleteBtn.forEach(j => {
 })
 
 
+
+
+const clockCard = document.querySelector(".current__card") 
+clockCard.addEventListener("mousedown", () => activeCardDesk)
+function activeCardDesk() {
+  clockCard.classList.add("active")
+  console.log("working")
+}
+function inactiveCardDesk() {
+  clockCard.classList.remove("active")
+  console.log("removed")
+}
+function activeCardMob() {
+  clockCard.classList.add("active")
+  console.log("working")
+}
+function inactiveCardMob() {
+  clockCard.classList.remove("active")
+  console.log("working")
+}
