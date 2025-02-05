@@ -1,6 +1,63 @@
 let data = JSON.parse(localStorage.getItem('tasks')) || [];
 localStorage.setItem('tasks', JSON.stringify(data));
 
+
+
+// ---------------------------------------
+function sortTasksByDateAndTime(tasks) {
+  return tasks.sort((a, b) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+
+      if (dateA !== dateB) return dateA - dateB;
+
+      // Если даты одинаковые, сортируем по alarm (время)
+      const timeA = a.alarm ? a.alarm.split(':').map(Number) : [0, 0];
+      const timeB = b.alarm ? b.alarm.split(':').map(Number) : [0, 0];
+
+      return (timeA[0] * 60 + timeA[1]) - (timeB[0] * 60 + timeB[1]);
+  });
+}
+
+function takeNearestTask() {
+  let data = JSON.parse(localStorage.getItem('tasks')) || [];
+
+  if (data.length === 0) {
+      console.log("Нет доступных задач");
+      return;
+  }
+
+  // Убираем выполненные задачи (status: true)
+  let filteredTasks = data.filter(task => !task.status);
+
+  // Убираем задачи с прошедшей датой
+  const today = new Date().toISOString().split('T')[0];
+  let futureTasks = filteredTasks.filter(task => new Date(task.date) >= new Date(today));
+
+  if (futureTasks.length === 0) {
+      console.log("Нет предстоящих задач");
+      return;
+  }
+
+  let sortedTasks = sortTasksByDateAndTime(futureTasks);
+  console.log("Отсортированные задачи:", sortedTasks);
+
+  let nearestTask = sortedTasks[0]; // Самая ближайшая задача
+  console.log("Ближайшая задача:", nearestTask);
+  document.querySelector(".current_title").innerHTML = `
+  <p class="">${nearestTask.name}</p><p>${nearestTask.alarm}</p>
+  `
+  const card = document.querySelector(".current__card__front").style.borderColor = `#${nearestTask.color}`
+  const card2 = document.querySelector(".current__card__back").style.borderColor = `#${nearestTask.color}`
+  const clock = document.querySelector(".clock-dial").style.borderColor = `#${nearestTask.color}`
+  const point = document.querySelector(".point").style.backgroundColor = `#${nearestTask.color}`
+  
+  
+}
+
+takeNearestTask();
+
+// --------------------------------------
 const ul = document.querySelector(".AllTask")
 
 function addTasks(name, alarm, color, id) {
@@ -219,6 +276,7 @@ function onSubmit(e) {
   // -------------------------------
   document.querySelectorAll(".check-box").forEach(i => {
     i.addEventListener("click", () => clicked(i.getAttribute("id")))
+    takeNearestTask();
   })
   // ---------------------------
   changeUI()
@@ -230,6 +288,8 @@ function onSubmit(e) {
       deleteTask(j.getAttribute("id"))
     })  
   })
+
+  takeNearestTask();
 
 }
 
@@ -353,20 +413,14 @@ function deleteTask(id) {
   newData = newData.filter(task => `d${task.id}` !== `${id}`);
   localStorage.setItem('tasks', JSON.stringify(newData));
   // console.log(newData)
+
+  takeNearestTask()
 }
 
 
-const deleteBtn = document.querySelectorAll('.delete')
-
-deleteBtn.forEach(j => {
-  j.addEventListener("click", () => {
-    deleteTask(j.getAttribute("id"))
-    
-  })  
-})
 
 
-
+// --------------------------------------------
 
 const clockCard = document.querySelector(".current__card") 
 clockCard.addEventListener("mousedown", () => activeCardDesk)
@@ -382,3 +436,12 @@ function activeCardMob() {
 function inactiveCardMob() {
   clockCard.classList.remove("active")
 }
+// ---------------------------------------------
+const deleteBtn = document.querySelectorAll('.delete')
+
+deleteBtn.forEach(j => {
+  j.addEventListener("click", () => {
+    deleteTask(j.getAttribute("id"))
+  })  
+})
+
